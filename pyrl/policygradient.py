@@ -229,11 +229,15 @@ class PolicyGradient(object):
     def run_trials(self, trials, init=None, init_b=None,
                    return_states=False, perf=None, task=None, progress_bar=False,
                    p_dropout=0):
+        #for matching pennies task, there is no way to pre-config all trials
+        #in this case, argument "trials" should be the number of trials
         if isinstance(trials, list):
             n_trials = len(trials)
         else:
             n_trials = trials
             trials   = []
+
+        #so far so good
 
         if return_states:
             run_value_network = True
@@ -241,6 +245,8 @@ class PolicyGradient(object):
             run_value_network = False
 
         # Storage
+        choiceHistory = []
+        rewardHistory = []
         U   = theanotools.zeros((self.Tmax, n_trials, self.Nin))
         Z   = theanotools.zeros((self.Tmax, n_trials, self.Nout))
         A   = theanotools.zeros((self.Tmax, n_trials, self.n_actions))
@@ -248,6 +254,7 @@ class PolicyGradient(object):
         M   = theanotools.zeros((self.Tmax, n_trials))
         Z_b = theanotools.zeros((self.Tmax, n_trials))
 
+        #so far so good
         # Noise
         Q   = self.make_noise((self.Tmax, n_trials, self.policy_net.noise_dim),
                                self.scaled_var_rec)
@@ -256,6 +263,7 @@ class PolicyGradient(object):
 
         x_t   = theanotools.zeros((1, self.policy_net.N))
         x_t_b = theanotools.zeros((1, self.baseline_net.N))
+
 
         # Dropout mask
         #D   = np.ones((self.Tmax, n_trials, self.policy_net.N))
@@ -290,6 +298,7 @@ class PolicyGradient(object):
             utils.println("[ PolicyGradient.run_trials ] ")
 
         for n in xrange(n_trials):
+            #print "n_trials", n
             if progress_bar and n % progress_inc == 0:
                 if n == 0:
                     utils.println("0")
@@ -306,7 +315,11 @@ class PolicyGradient(object):
             if n < len(trials):
                 trial = trials[n]
             else:
-                trial = self.task.get_condition(self.rng, self.dt)
+                #good here
+                #print "self.dt", self.dt
+                #dt = 10;
+                trial = self.task.get_condition(self.rng, self.dt, choiceHis=choiceHistory, rewardHis=rewardHistory, trial_count=n)
+                #get condition problem
                 trials.append(trial)
 
             #-----------------------------------------------------------------------------
@@ -314,10 +327,13 @@ class PolicyGradient(object):
             #-----------------------------------------------------------------------------
 
             t = 0
+
             if init is None:
+                #print "init is None"
                 z_t,   x_t[0]   = self.policy_step_0()
                 z_t_b, x_t_b[0] = self.baseline_step_0()
             else:
+                #print "init is not None"
                 z_t,   x_t[0]   = init
                 z_t_b, x_t_b[0] = init_b
             Z[t,n]   = z_t
@@ -328,6 +344,8 @@ class PolicyGradient(object):
                 x0[n]   = x_t[0]
                 x0_b[n] = x_t_b[0]
 
+            #print "initial condition is saved"
+
             # Save states
             if return_states:
                 r_policy[t,n] = self.policy_net.firing_rate(x_t[0])
@@ -335,16 +353,16 @@ class PolicyGradient(object):
 
             # Select action
             a_t = theanotools.choice(self.rng, self.Nout, p=np.reshape(z_t, (self.Nout,)))
-            A[t,n,a_t] = 1
+            A[t, n, a_t] = 1
 
             #a_t = self.rng.normal(np.reshape(z_t, (self.Nout,)), self.sigma)
             #A[t,n,0] = a_t
 
             # Trial step
-            U[t,n], R[t,n], status = self.task.get_step(self.rng, self.dt,
+            U[t, n], R[t, n], status = self.task.get_step(self.rng, self.dt,
                                                         trial, t+1, a_t)
-            u_t    = U[t,n]
-            M[t,n] = 1
+            u_t = U[t, n]
+            M[t, n] = 1
 
             # Noise
             q_t   = Q[t,n]
@@ -354,10 +372,21 @@ class PolicyGradient(object):
             # Time t > 0
             #-----------------------------------------------------------------------------
 
+            #need to put whether to end decision epoch here
+            jump = False
+
+            #print "hello"  good here
             for t in xrange(1, self.Tmax):
                 # Aborted episode
+                #if t%100 == 0:
+                #    print "time_step", t
+
                 if not status['continue']:
                     break
+
+                if jump:
+                    #decision is made, go to next epoch
+                    continue
 
                 # Policy
                 z_t, x_t[0] = self.policy_step_t(u_t[None,:], q_t[None,:], x_t)
@@ -386,6 +415,10 @@ class PolicyGradient(object):
                 # Select action
                 a_t = theanotools.choice(self.rng, self.Nout,
                                          p=np.reshape(z_t, (self.Nout,)))
+
+                #get choice history
+
+
                 A[t,n,a_t] = 1
 
                 #a_t = self.rng.normal(np.reshape(z_t, (self.Nout,)), self.sigma)
@@ -396,9 +429,27 @@ class PolicyGradient(object):
                     U[t,n] = 0
                     R[t,n] = self.R_TERMINAL
                     status = {'continue': False, 'reward': R[t,n]}
+
                 else:
                     U[t,n], R[t,n], status = self.task.get_step(self.rng, self.dt,
                                                                 trial, t+1, a_t)
+                    if 'correct' in status.keys():
+                        if status['correct']:
+                            rewardHistory.append(1)
+                        elif not status['correct']:
+                            rewardHistory.append(0)
+                            rewardHistory.append(0)
+
+                        if status['choice'] == 'LEFT':
+                            choiceHistory.append(2)
+                            jump = True
+                        elif status['choice'] == 'RIGHT':
+                            choiceHistory.append(3)
+                            jump = True
+
+                    if t+1 > 2200: #when go beyond decision period
+                        jump = False
+
                 R[t,n] *= self.discount_factor(t)
 
                 u_t    = U[t,n]
@@ -686,9 +737,10 @@ class PolicyGradient(object):
                         rng_state = self.rng.get_state()
 
                         # Trials
-                        trials = [self.task.get_condition(self.rng, self.dt)
-                                  for i in xrange(n_validation)]
-
+                        #trials = [self.task.get_condition(self.rng, self.dt, )
+                        #          for i in xrange(n_validation)]
+                        trials = 10000
+                        print trials
                         # Run trials
                         (U, Q, Q_b, Z, Z_b, A, R, M, init_, init_b_, x0_, x0_b_,
                          perf_) = self.run_trials(trials, progress_bar=True)
