@@ -102,12 +102,14 @@ class Model(object):
 
         """
         if recover and os.path.isfile(savefile):
-            pg = self.get_pg(savefile, load='current')
+            pg = self.get_pg(savefile, load='current')  # get_pg returns a policygradient instance
         else:
             self.config['seed']          = 3*seed
             self.config['policy_seed']   = 3*seed + 1
             self.config['baseline_seed'] = 3*seed + 2
+
             pg = self.get_pg(self.config, self.config['seed'])
+
 
         # Train
         pg.train(savefile, recover=recover)

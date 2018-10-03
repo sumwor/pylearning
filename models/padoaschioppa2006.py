@@ -52,7 +52,7 @@ baseline_Win = 10
 def scale(x):
     return x/5
 
-def get_condition(rng, dt, context={}):
+def get_condition(rng, dt, context={}, choiceHis=[], rewardHis=[]):
     #-------------------------------------------------------------------------------------
     # Epochs
     #-------------------------------------------------------------------------------------

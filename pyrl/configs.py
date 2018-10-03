@@ -4,7 +4,7 @@ required = ['inputs', 'actions', 'tmax', 'n_gradient', 'n_validation']
 default  = {
     'Performance':           None,
     'N':                     100,
-    'p0':                    0.1,
+    'p0':                    0.1,  # connection probability of decision network
     'baseline_N':            100,
     'baseline_p0':           1,
     'lr':                    0.004,
@@ -13,7 +13,7 @@ default  = {
     'fix':                   [],
     'baseline_fix':          [],
     'target_reward':         np.inf,
-    'mode':                  'episodic',
+    'mode':                  'continues',  # should be contineous?
     'network_type':          'gru',
     'baseline_network_type': 'gru',
     'R_ABORTED':             -1,

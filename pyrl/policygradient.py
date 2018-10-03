@@ -92,6 +92,9 @@ class PolicyGradient(object):
             config = config_or_savefile
             self.config = config
 
+            #config comes from configs.py
+            #print "config is", config
+
             # Time step
             self.dt = dt
             if self.dt is None:
@@ -127,6 +130,7 @@ class PolicyGradient(object):
             # Baseline network
             #Win = np.zeros((self.policy_net.N + len(config['actions']), 3*config['N']))
             #Win[self.policy_net.N:] = 1
+            #what's baseline?
 
             '''
             rng = np.random.RandomState(1234)
@@ -229,15 +233,13 @@ class PolicyGradient(object):
     def run_trials(self, trials, init=None, init_b=None,
                    return_states=False, perf=None, task=None, progress_bar=False,
                    p_dropout=0):
-        #for matching pennies task, there is no way to pre-config all trials
-        #in this case, argument "trials" should be the number of trials
+        # for matching pennies task, there is no way to pre-config all trials
+        # in this case, argument "trials" should be the number of trials
         if isinstance(trials, list):
             n_trials = len(trials)
         else:
             n_trials = trials
             trials   = []
-
-        #so far so good
 
         if return_states:
             run_value_network = True
@@ -247,21 +249,20 @@ class PolicyGradient(object):
         # Storage
         choiceHistory = []
         rewardHistory = []
-        U   = theanotools.zeros((self.Tmax, n_trials, self.Nin))
-        Z   = theanotools.zeros((self.Tmax, n_trials, self.Nout))
+        U   = theanotools.zeros((self.Tmax, n_trials, self.Nin))   # input
+        Z   = theanotools.zeros((self.Tmax, n_trials, self.Nout))  # output, policy?
         A   = theanotools.zeros((self.Tmax, n_trials, self.n_actions))
-        R   = theanotools.zeros((self.Tmax, n_trials))
+        R   = theanotools.zeros((self.Tmax, n_trials))  # reward
         M   = theanotools.zeros((self.Tmax, n_trials))
-        Z_b = theanotools.zeros((self.Tmax, n_trials))
+        Z_b = theanotools.zeros((self.Tmax, n_trials))  # baseline output (reward prediction)
 
-        #so far so good
         # Noise
         Q   = self.make_noise((self.Tmax, n_trials, self.policy_net.noise_dim),
                                self.scaled_var_rec)
         Q_b = self.make_noise((self.Tmax, n_trials, self.baseline_net.noise_dim),
                                self.scaled_baseline_var_rec)
 
-        x_t   = theanotools.zeros((1, self.policy_net.N))
+        x_t   = theanotools.zeros((1, self.policy_net.N))   # neuronal activity?
         x_t_b = theanotools.zeros((1, self.baseline_net.N))
 
 
@@ -315,11 +316,7 @@ class PolicyGradient(object):
             if n < len(trials):
                 trial = trials[n]
             else:
-                #good here
-                #print "self.dt", self.dt
-                #dt = 10;
                 trial = self.task.get_condition(self.rng, self.dt, choiceHis=choiceHistory, rewardHis=rewardHistory, trial_count=n)
-                #get condition problem
                 trials.append(trial)
 
             #-----------------------------------------------------------------------------
@@ -329,11 +326,9 @@ class PolicyGradient(object):
             t = 0
 
             if init is None:
-                #print "init is None"
                 z_t,   x_t[0]   = self.policy_step_0()
                 z_t_b, x_t_b[0] = self.baseline_step_0()
             else:
-                #print "init is not None"
                 z_t,   x_t[0]   = init
                 z_t_b, x_t_b[0] = init_b
             Z[t,n]   = z_t
@@ -343,8 +338,6 @@ class PolicyGradient(object):
             if x0 is not None:
                 x0[n]   = x_t[0]
                 x0_b[n] = x_t_b[0]
-
-            #print "initial condition is saved"
 
             # Save states
             if return_states:
@@ -368,33 +361,29 @@ class PolicyGradient(object):
             q_t   = Q[t,n]
             q_t_b = Q_b[t,n]
 
-            #-----------------------------------------------------------------------------
+            # -----------------------------------------------------------------------------
             # Time t > 0
-            #-----------------------------------------------------------------------------
+            # -----------------------------------------------------------------------------
 
-            #need to put whether to end decision epoch here
+            # need to put whether to end decision epoch here
             jump = False
 
-            #print "hello"  good here
             for t in xrange(1, self.Tmax):
-                # Aborted episode
-                #if t%100 == 0:
-                #    print "time_step", t
-
                 if not status['continue']:
                     break
 
                 if jump:
-                    #decision is made, go to next epoch
+                    # decision is made, go to next epoch
                     continue
 
-                # Policy
+                # Policy network output
                 z_t, x_t[0] = self.policy_step_t(u_t[None,:], q_t[None,:], x_t)
                 Z[t,n] = z_t
 
                 # Baseline
                 r_t = self.policy_net.firing_rate(x_t[0])
-                u_t_b = np.concatenate((r_t, A[t-1,n]), axis=-1)
+                u_t_b = np.concatenate((r_t, A[t-1,n]), axis=-1)  # baseline value network input is action and choice
+                # should be the same for policy network
                 z_t_b, x_t_b[0] = self.baseline_step_t(u_t_b[None,:],
                                                        q_t_b[None,:],
                                                        x_t_b)
@@ -405,24 +394,22 @@ class PolicyGradient(object):
                     r_policy[t,n] = self.policy_net.firing_rate(x_t[0])
                     r_value[t,n]  = self.baseline_net.firing_rate(x_t_b[0])
 
-                    #W = self.policy_net.get_values()['Wout']
-                    #b = self.policy_net.get_values()['bout']
-                    #V = r_policy[t,n].dot(W) + b
-                    #print(t)
-                    #print(V)
-                    #print(np.exp(V))
+                    # W = self.policy_net.get_values()['Wout']
+                    # b = self.policy_net.get_values()['bout']
+                    # V = r_policy[t,n].dot(W) + b
+                    # print(t)
+                    # print(V)
+                    # print(np.exp(V))
 
                 # Select action
                 a_t = theanotools.choice(self.rng, self.Nout,
                                          p=np.reshape(z_t, (self.Nout,)))
 
-                #get choice history
-
-
+                # get choice history
                 A[t,n,a_t] = 1
 
-                #a_t = self.rng.normal(np.reshape(z_t, (self.Nout,)), self.sigma)
-                #A[t,n,0] = a_t
+                # a_t = self.rng.normal(np.reshape(z_t, (self.Nout,)), self.sigma)
+                # A[t,n,0] = a_t
 
                 # Trial step
                 if self.abort_on_last_t and t == self.Tmax-1:
@@ -447,7 +434,7 @@ class PolicyGradient(object):
                             choiceHistory.append(3)
                             jump = True
 
-                    if t+1 > 2200: #when go beyond decision period
+                    if t+1 > 2200: # when go beyond decision period
                         jump = False
 
                 R[t,n] *= self.discount_factor(t)
@@ -473,13 +460,20 @@ class PolicyGradient(object):
 
         #---------------------------------------------------------------------------------
 
-        rvals = [U, Q, Q_b, Z, Z_b, A, R, M, init, init_b, x0, x0_b, perf]
+        rvals = [U, Q, Q_b, Z, Z_b, A, R, M, init, init_b, x0, x0_b, perf]  # M?
         if return_states:
             rvals += [r_policy, r_value]
 
         return rvals
 
     def func_update_policy(self, Tmax, use_x0=False, accumulators=None):
+        """
+        update policy network
+        :param Tmax:
+        :param use_x0:
+        :param accumulators:
+        :return:
+        """
         U = tensor.tensor3('U') # Inputs
         Q = tensor.tensor3('Q') # Noise
 
@@ -504,15 +498,15 @@ class PolicyGradient(object):
         logpi_t = tensor.sum(log_z*A[1:],  axis=-1)*M[1:]
 
         # Entropy
-        #entropy_0 = tensor.sum(tensor.exp(log_z_0)*log_z_0, axis=-1)*M[0]
-        #entropy_t = tensor.sum(tensor.exp(log_z)*log_z, axis=-1)*M[1:]
-        #entropy   = (tensor.sum(entropy_0) + tensor.sum(entropy_t))/tensor.sum(M)
+        # entropy_0 = tensor.sum(tensor.exp(log_z_0)*log_z_0, axis=-1)*M[0]
+        # entropy_t = tensor.sum(tensor.exp(log_z)*log_z, axis=-1)*M[1:]
+        # entropy   = (tensor.sum(entropy_0) + tensor.sum(entropy_t))/tensor.sum(M)
 
-        #def f(x):
+        # def f(x):
         #    return -x**2/2/self.sigma**2
 
-        #logpi_0 = tensor.sum(f(A[0] - z_0), axis=-1)*M[0]
-        #logpi_t = tensor.sum(f(A[1:] - z), axis=-1)*M[1:]
+        # logpi_0 = tensor.sum(f(A[0] - z_0), axis=-1)*M[0]
+        # logpi_t = tensor.sum(f(A[1:] - z), axis=-1)*M[1:]
 
         # Enforce causality
         Mcausal = theanotools.zeros((Tmax-1, Tmax-1))
@@ -557,6 +551,15 @@ class PolicyGradient(object):
         return theano.function(args, norm, updates=updates)
 
     def func_update_baseline(self, use_x0=False, accumulators=None):
+        """
+        update value network
+        the reward baseline is the output of a recurrently connected value work
+        useful for learning but not executing
+        expected reward
+        :param use_x0:
+        :param accumulators:
+        :return:
+        """
         U  = tensor.tensor3('U')
         R  = tensor.matrix('R')
         R_ = R.reshape((R.shape[0], R.shape[1], 1))
@@ -737,10 +740,11 @@ class PolicyGradient(object):
                         rng_state = self.rng.get_state()
 
                         # Trials
-                        #trials = [self.task.get_condition(self.rng, self.dt, )
-                        #          for i in xrange(n_validation)]
-                        trials = 10000
-                        print trials
+
+                        # trials = [self.task.get_condition(self.rng, self.dt, )
+                        #           for i in xrange(n_validation)]
+                        trials = n_validation
+                        # for matching pennies task, where trials cannot be generated in advance
                         # Run trials
                         (U, Q, Q_b, Z, Z_b, A, R, M, init_, init_b_, x0_, x0_b_,
                          perf_) = self.run_trials(trials, progress_bar=True)
