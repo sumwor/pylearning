@@ -49,6 +49,7 @@ def run(action, trials, pg, scratchpath, dt_save=None):
     perf.display()
 
     # Save
+    print "trialsfile", trialsfile
     utils.save(trialsfile, save)
 
     # File size

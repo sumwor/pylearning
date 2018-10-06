@@ -187,6 +187,9 @@ elif action == 'run':
         config['dt-save'] = None
 
     try:
+        print "action", action
+        print "args", args
+        print "config", config
         r.do(action, args, config)
     except SystemExit as e:
         print("Error: " + str(e.code))
