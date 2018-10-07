@@ -171,8 +171,7 @@ def plot_trial(pg, m, init, init_b, rng, figspath, name):
 
 def choice_pattern(trialsfile, offers, savefile, action,**kwargs):
     # Load trials
-
-
+    #this is up to date
 
     trials, A, R, M, perf = utils.load(trialsfile)
 

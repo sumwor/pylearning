@@ -119,8 +119,10 @@ class PolicyGradient(object):
                 'L2_r':     config['L2_r'],
                 'L1_Wrec':  config['L1_Wrec'],
                 'L2_Wrec':  config['L2_Wrec'],
-                'alpha':    alpha
+                'alpha':    alpha,
+                'bout':     config['bout']
                 }
+            # print "bout:", self.policy_config['bout']
 
             # Network type
             Network = Networks[config['network_type']]

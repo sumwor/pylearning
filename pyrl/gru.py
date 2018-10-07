@@ -25,7 +25,7 @@ configs_default  = {
     'Win':      1,
     'Win_mask': None,
     'Wout':     0,
-    'bout':     0,
+    'bout':     0,  # original 1
     'x0':       0.5,
     'L1_Wrec':  0,
     'L2_Wrec':  0,
@@ -53,6 +53,7 @@ class GRU(Recurrent):
         if name == 'Wout':
             return (self.N, self.Nout)
         if name == 'bout':
+            print "Nout:", self.Nout
             return self.Nout
         if name == 'x0':
             return self.N
@@ -81,7 +82,7 @@ class GRU(Recurrent):
                 self.config[k] = config[k]
             else:
                 self.config[k] = configs_default[k]
-
+            print k, ' ', self.config[k]
         #=================================================================================
         # Activations
         #=================================================================================
@@ -193,7 +194,13 @@ class GRU(Recurrent):
                     params['Wout'] = np.zeros(self.get_dim('Wout'))
 
                 # Output biases
-                params['bout'] = self.config['bout']*np.ones(self.get_dim('bout'))
+
+                # initialize bout to a biased values
+                if "policy" in self.name:
+                    params['bout'] = np.array([1, 30, 0.2])
+                    print "params['bout']:", params['bout']
+                else:
+                    params['bout'] = self.config['bout'] * np.ones(self.get_dim('bout'))
 
                 # Initial condition
                 params['x0'] = self.config['x0']*np.ones(self.get_dim('x0'))

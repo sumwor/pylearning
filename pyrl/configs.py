@@ -28,8 +28,8 @@ default  = {
     'L2_r':                  0,
     'baseline_L2_r':         0,
     'Win':                   1,
-    'baseline_Win':          1,
-    'bout':                  0,
+    'baseline_Win':          None,
+    'bout':                  1,  #bias to one decision?
     'baseline_bout':         None,
     'Win_mask':              None,
     'baseline_Win_mask':     None,

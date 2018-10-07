@@ -54,7 +54,7 @@ tmax         = go + decision + ITI_max
 
 # Rewards
 R_ABORTED = 0
-R_water   = 0.1
+R_water   = 1
 
 # Increase initial policy -> baseline weights
 baseline_Win = 10

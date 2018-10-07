@@ -51,6 +51,7 @@ def choice(rng, a, size=1, replace=True, p=None):
         if np.any(p < 0):
             raise ValueError("probabilities are not non-negative")
         if not np.allclose(p.sum(), 1):
+            print "p:", p
             raise ValueError("probabilities do not sum to 1")
 
     # Actual sampling
