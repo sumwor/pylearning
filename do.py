@@ -66,6 +66,8 @@ from pyrl.model import Model
 
 # Location of script
 here   = utils.get_here(__file__)
+
+print here
 prefix = os.path.basename(here)
 
 # Name to use

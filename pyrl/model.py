@@ -64,7 +64,7 @@ class Model(object):
         if 'Nout' not in self.config:
 
             self.config['Nout'] = len(self.config['actions'])
-            print "Nout in model.py:",self.config['Nout']
+            # print "Nout in model.py:",self.config['Nout']
             # Ensure integer types
         self.config['n_gradient']   = int(self.config['n_gradient'])
         self.config['n_validation'] = int(self.config['n_validation'])

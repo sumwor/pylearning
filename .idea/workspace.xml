@@ -1,79 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="mock:///code.py" line="0" />
+    <bookmark url="mock:///code.py" line="40" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa5d81b8-0397-46a4-b7ea-94793fdec2b9" name="Default Changelist" comment="" />
+    <list default="true" id="fa5d81b8-0397-46a4-b7ea-94793fdec2b9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/twoarmbandit.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pyrl/policygradient_MPbackup.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/work/bandit.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/do.py" beforeDir="false" afterPath="$PROJECT_DIR$/do.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pyrl/configs.py" beforeDir="false" afterPath="$PROJECT_DIR$/pyrl/configs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pyrl/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/pyrl/model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pyrl/policygradient.py" beforeDir="false" afterPath="$PROJECT_DIR$/pyrl/policygradient.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="1501771320">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="6" />
-          <entry key="project.open.time.1" value="1" />
-          <entry key="project.open.time.2" value="1" />
-          <entry key="project.open.time.4" value="1" />
-          <entry key="project.open.time.5" value="1" />
-          <entry key="project.open.time.6" value="1" />
-          <entry key="project.open.time.8" value="2" />
-          <entry key="project.open.time.9" value="3" />
-          <entry key="project.opened" value="10" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="py" value="43" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.vcs.git.usages" />
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="Python" value="43" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="Python" value="9042" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="Python Console" value="1608" />
-          <entry key="py" value="7434" />
-        </counts>
-      </usages-collector>
-    </session>
-  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/do.py">
+        <entry file="file://$PROJECT_DIR$/pyrl/policygradient.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4416">
-              <caret line="195" column="13" selection-start-line="195" selection-start-column="13" selection-end-line="195" selection-end-column="13" />
+            <state relative-caret-position="179">
+              <caret line="129" column="41" lean-forward="true" selection-start-line="129" selection-start-column="41" selection-end-line="129" selection-end-column="41" />
+              <folding>
+                <element signature="e#0#48#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pyrl/policygradient.py">
+        <entry file="file://$PROJECT_DIR$/do.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1041">
-              <caret line="349" column="71" selection-start-line="349" selection-start-column="71" selection-end-line="349" selection-end-column="74" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pyrl/gru.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="753">
-              <caret line="199" column="50" selection-start-line="199" selection-start-column="50" selection-end-line="199" selection-end-column="52" />
+            <state relative-caret-position="-1597">
+              <caret line="120" column="60" lean-forward="true" selection-start-line="120" selection-start-column="4" selection-end-line="120" selection-end-column="60" />
               <folding>
-                <element signature="e#0#48#0" expanded="true" />
+                <element signature="e#67#82#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -82,41 +51,30 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pyrl/theanotools.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1224">
-              <caret line="54" column="10" selection-start-line="54" selection-start-column="10" selection-end-line="54" selection-end-column="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/examples/analysis/matchingpennies.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
-              <caret line="30" column="8" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="14" />
+            <state relative-caret-position="-2280">
+              <caret line="46" column="23" lean-forward="true" selection-start-line="46" selection-start-column="23" selection-end-line="46" selection-end-column="23" />
               <folding>
-                <element signature="e#0#48#0" expanded="true" />
-                <marker date="1538947215316" expanded="true" signature="429:1236" ph="..." />
+                <element signature="e#0#18#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
+        <entry file="file://$PROJECT_DIR$/pyrl/utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="25608">
-              <caret line="1067" selection-start-line="1067" selection-end-line="1067" />
+            <state relative-caret-position="419">
+              <caret line="97" column="39" lean-forward="true" selection-start-line="97" selection-start-column="39" selection-end-line="97" selection-end-column="39" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/examples/analysis/padoaschioppa2006.py">
+        <entry file="file://$PROJECT_DIR$/pyrl/performance.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="864">
-              <caret line="45" column="53" selection-start-line="45" selection-start-column="53" selection-end-line="45" selection-end-column="53" />
+            <state>
               <folding>
-                <element signature="e#0#31#0" expanded="true" />
+                <element signature="e#0#48#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -125,8 +83,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pyrl/model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1392">
-              <caret line="66" column="55" selection-start-line="66" selection-start-column="55" selection-end-line="66" selection-end-column="55" />
+            <state relative-caret-position="515">
+              <caret line="115" column="43" lean-forward="true" selection-start-line="115" selection-start-column="8" selection-end-line="115" selection-end-column="43" />
               <folding>
                 <element signature="e#45#93#0" expanded="true" />
               </folding>
@@ -135,14 +93,45 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/matchingpennies.py">
+        <entry file="file://$PROJECT_DIR$/work/bandit.ipynb">
+          <provider selected="true" editor-type-id="ipnb-editor">
+            <state>
+              <selected id="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pyrl/sgd.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1200">
-              <caret line="56" column="12" selection-start-line="56" selection-start-column="12" selection-end-line="56" selection-end-column="12" />
+            <state relative-caret-position="251">
+              <caret line="35" column="63" lean-forward="true" selection-start-line="35" selection-start-column="63" selection-end-line="35" selection-end-column="63" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pyrl/gru.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="155">
+              <caret line="296" column="79" lean-forward="true" selection-start-line="295" selection-start-column="8" selection-end-line="296" selection-end-column="79" />
+              <folding>
+                <element signature="e#0#48#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/twoarmbandit.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="72">
+              <caret line="177" column="40" lean-forward="true" selection-start-line="177" selection-start-column="40" selection-end-line="177" selection-end-column="40" />
               <folding>
                 <element signature="e#42#73#0" expanded="true" />
-                <marker date="1538944893158" expanded="true" signature="1351:1356" ph="..." />
-                <marker date="1538944893158" expanded="true" signature="5500:5505" ph="..." />
               </folding>
             </state>
           </provider>
@@ -153,13 +142,13 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Jupyter Notebook" />
         <option value="Python Script" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>get_condition</find>
       <find>start_trial</find>
       <find>progress_inc</find>
       <find>rng</find>
@@ -175,8 +164,21 @@
       <find>initialize</find>
       <find>policy_step_0</find>
       <find>self.policy_net</find>
-      <find>Nout</find>
       <find>choice</find>
+      <find>Nout</find>
+      <find>Network</find>
+      <find>__file__</find>
+      <find>load</find>
+      <find>Order</find>
+      <find>tensor</find>
+      <find>obj</find>
+      <find>policy_sgd</find>
+      <find>ob</find>
+      <find>policy_net</find>
+      <find>trainable</find>
+      <find>self.</find>
+      <find>grads</find>
+      <find>get</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -187,15 +189,19 @@
       <list>
         <option value="$PROJECT_DIR$/pyrl/tasktools.py" />
         <option value="$PROJECT_DIR$/models/padoaschioppa2006.py" />
-        <option value="$PROJECT_DIR$/do.py" />
         <option value="$PROJECT_DIR$/pyrl/runtools.py" />
-        <option value="$PROJECT_DIR$/pyrl/configs.py" />
-        <option value="$PROJECT_DIR$/pyrl/policygradient.py" />
-        <option value="$PROJECT_DIR$/pyrl/model.py" />
         <option value="$PROJECT_DIR$/pyrl/theanotools.py" />
         <option value="$PROJECT_DIR$/pyrl/gru.py" />
         <option value="$PROJECT_DIR$/models/matchingpennies.py" />
         <option value="$PROJECT_DIR$/examples/analysis/matchingpennies.py" />
+        <option value="$PROJECT_DIR$/models/bandit.py" />
+        <option value="$PROJECT_DIR$/pyrl/policygradient_MPbackup.py" />
+        <option value="$PROJECT_DIR$/pyrl/configs.py" />
+        <option value="$PROJECT_DIR$/models/twoarmbandit.py" />
+        <option value="$PROJECT_DIR$/do.py" />
+        <option value="$PROJECT_DIR$/pyrl/model.py" />
+        <option value="$PROJECT_DIR$/pyrl/policygradient.py" />
+        <option value="$PROJECT_DIR$/work/bandit.ipynb" />
       </list>
     </option>
   </component>
@@ -227,24 +233,12 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="RLearning" type="b2602c69:ProjectViewProjectNode" />
               <item name="RLearning" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RLearning" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RLearning" type="462c0819:PsiDirectoryNode" />
-              <item name="examples" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RLearning" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RLearning" type="462c0819:PsiDirectoryNode" />
-              <item name="examples" type="462c0819:PsiDirectoryNode" />
-              <item name="analysis" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="RLearning" type="b2602c69:ProjectViewProjectNode" />
@@ -256,10 +250,16 @@
               <item name="RLearning" type="462c0819:PsiDirectoryNode" />
               <item name="pyrl" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="RLearning" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RLearning" type="462c0819:PsiDirectoryNode" />
+              <item name="work" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -278,7 +278,24 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.matchingpennies (1)">
+  <component name="RunManager" selected="Jupyter Notebook.RLearning">
+    <configuration name="RLearning" type="JupiterNotebook" factoryName="Jupyter Notebook">
+      <module name="RLearning" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="additionalOptions" value="" />
+      <option name="ipnbHost" value="127.0.0.1" />
+      <option name="ipnbPort" value="8888" />
+      <method v="2" />
+    </configuration>
     <configuration name="matchingpennies (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="RLearning" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -322,6 +339,7 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Jupyter Notebook.RLearning" />
       <item itemvalue="Python.matchingpennies" />
       <item itemvalue="Python.matchingpennies (1)" />
     </list>
@@ -358,20 +376,20 @@
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24972677" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24972677" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32972974" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32972974" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49945354" weight="0.32937366" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32972974" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32937366" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32972974" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Python Console" order="10" weight="0.32972974" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.78852457" weight="0.32937366" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.086338796" side_tool="true" visible="true" weight="0.32937366" />
+      <window_info anchor="bottom" id="Python Console" order="10" sideWeight="0.9136612" visible="true" weight="0.32937366" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -396,9 +414,6 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout-to-restore>
   </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
-  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -411,6 +426,10 @@
           <url>file://$PROJECT_DIR$/examples/analysis/matchingpennies.py</url>
           <line>22</line>
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/pyrl/networks.py</url>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -580,11 +599,6 @@ plt.show()</expression-string>
         <state relative-caret-position="-936" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/padoaschioppa2006_1A3B.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-72" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/models/postdecisionwager.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-504" />
@@ -605,13 +619,6 @@ plt.show()</expression-string>
     </entry>
     <entry file="file://$PROJECT_DIR$/examples/analysis/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pyrl/tasktools.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2376">
-          <caret line="103" column="21" selection-start-line="103" selection-start-column="21" selection-end-line="103" selection-end-column="21" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/models/rdm_fixed.py">
       <provider selected="true" editor-type-id="text-editor" />
@@ -654,27 +661,6 @@ plt.show()</expression-string>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pyrl/configs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="31" column="30" selection-start-line="31" selection-start-column="30" selection-end-line="31" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pyrl/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="121" selection-start-line="121" selection-end-line="121" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pyrl/networks.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/anaconda2/envs/scientific/lib/python2.7/site-packages/numpy/core/_methods.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
@@ -682,30 +668,29 @@ plt.show()</expression-string>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/do.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4416">
-          <caret line="195" column="13" selection-start-line="195" selection-start-column="13" selection-end-line="195" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pyrl/theanotools.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1224">
-          <caret line="54" column="10" selection-start-line="54" selection-start-column="10" selection-end-line="54" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25608">
+        <state relative-caret-position="826">
           <caret line="1067" selection-start-line="1067" selection-end-line="1067" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/examples/analysis/matchingpennies.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="213" column="20" lean-forward="true" selection-start-line="213" selection-start-column="20" selection-end-line="213" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#48#0" expanded="true" />
+            <marker date="1538947215316" expanded="true" signature="429:1236" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/bandit" />
+    <entry file="file://$PROJECT_DIR$/models/bandit.py" />
     <entry file="file://$PROJECT_DIR$/examples/analysis/padoaschioppa2006.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="864">
+        <state relative-caret-position="1080">
           <caret line="45" column="53" selection-start-line="45" selection-start-column="53" selection-end-line="45" selection-end-column="53" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
@@ -713,20 +698,39 @@ plt.show()</expression-string>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pyrl/model.py">
+    <entry file="file://$PROJECT_DIR$/pyrl/policygradient_MPbackup.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1392">
-          <caret line="66" column="55" selection-start-line="66" selection-start-column="55" selection-end-line="66" selection-end-column="55" />
-          <folding>
-            <element signature="e#45#93#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="521">
+          <caret line="965" lean-forward="true" selection-start-line="965" selection-end-line="965" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/do.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pyrl/tasktools.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2400">
+          <caret line="104" column="33" selection-start-line="104" selection-start-column="33" selection-end-line="104" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/padoaschioppa2006_1A3B.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3487" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pyrl/configs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="521">
+          <caret line="31" column="32" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/models/matchingpennies.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1200">
-          <caret line="56" column="12" selection-start-line="56" selection-start-column="12" selection-end-line="56" selection-end-column="12" />
+        <state relative-caret-position="240">
+          <caret line="13" column="8" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="8" />
           <folding>
             <element signature="e#42#73#0" expanded="true" />
             <marker date="1538944893158" expanded="true" signature="1351:1356" ph="..." />
@@ -735,30 +739,105 @@ plt.show()</expression-string>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/examples/analysis/matchingpennies.py">
+    <entry file="file://$PROJECT_DIR$/models/twoarmbandit.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="30" column="8" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="14" />
+        <state relative-caret-position="72">
+          <caret line="177" column="40" lean-forward="true" selection-start-line="177" selection-start-column="40" selection-end-line="177" selection-end-column="40" />
           <folding>
-            <element signature="e#0#48#0" expanded="true" />
-            <marker date="1538947215316" expanded="true" signature="429:1236" ph="..." />
+            <element signature="e#42#73#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/do.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1597">
+          <caret line="120" column="60" lean-forward="true" selection-start-line="120" selection-start-column="4" selection-end-line="120" selection-end-column="60" />
+          <folding>
+            <element signature="e#67#82#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pyrl/model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="515">
+          <caret line="115" column="43" lean-forward="true" selection-start-line="115" selection-start-column="8" selection-end-line="115" selection-end-column="43" />
+          <folding>
+            <element signature="e#45#93#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pyrl/networks.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pyrl/policygradient.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1041">
-          <caret line="349" column="71" selection-start-line="349" selection-start-column="71" selection-end-line="349" selection-end-column="74" />
+        <state relative-caret-position="179">
+          <caret line="129" column="41" lean-forward="true" selection-start-line="129" selection-start-column="41" selection-end-line="129" selection-end-column="41" />
+          <folding>
+            <element signature="e#0#48#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pyrl/gru.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="753">
-          <caret line="199" column="50" selection-start-line="199" selection-start-column="50" selection-end-line="199" selection-end-column="52" />
+        <state relative-caret-position="155">
+          <caret line="296" column="79" lean-forward="true" selection-start-line="295" selection-start-column="8" selection-end-line="296" selection-end-column="79" />
           <folding>
             <element signature="e#0#48#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/work/bandit.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pyrl/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="419">
+          <caret line="97" column="39" lean-forward="true" selection-start-line="97" selection-start-column="39" selection-end-line="97" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pyrl/performance.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#48#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pyrl/theanotools.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2280">
+          <caret line="46" column="23" lean-forward="true" selection-start-line="46" selection-start-column="23" selection-end-line="46" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pyrl/sgd.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="35" column="63" lean-forward="true" selection-start-line="35" selection-start-column="63" selection-end-line="35" selection-end-column="63" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>

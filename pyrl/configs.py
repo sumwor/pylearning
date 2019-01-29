@@ -13,7 +13,7 @@ default  = {
     'fix':                   [],
     'baseline_fix':          [],
     'target_reward':         np.inf,
-    'mode':                  'continues',  # should be contineous?
+    'mode':                  'continuous',  # should be contineous?
     'network_type':          'gru',
     'baseline_network_type': 'gru',
     'R_ABORTED':             -1,
@@ -29,7 +29,7 @@ default  = {
     'baseline_L2_r':         0,
     'Win':                   1,
     'baseline_Win':          None,
-    'bout':                  1,  #bias to one decision?
+    'bout':                  0.5,  #bias to one decision?
     'baseline_bout':         None,
     'Win_mask':              None,
     'baseline_Win_mask':     None,

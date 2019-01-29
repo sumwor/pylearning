@@ -5,6 +5,7 @@ import datetime
 import sys
 
 import numpy as np
+import random
 
 import theano
 from   theano import tensor
@@ -235,7 +236,7 @@ class PolicyGradient(object):
     def run_trials(self, trials, init=None, init_b=None,
                    return_states=False, perf=None, task=None, progress_bar=False,
                    p_dropout=0):
-        # for matching pennies task, there is no way to pre-config all trials
+        # for bandit, pre-config all trials
         # in this case, argument "trials" should be the number of trials
         if isinstance(trials, list):
             n_trials = len(trials)
@@ -301,7 +302,7 @@ class PolicyGradient(object):
             utils.println("[ PolicyGradient.run_trials ] ")
 
         for n in xrange(n_trials):
-            #print "n_trials", n
+            # print "n_trials", n
             if progress_bar and n % progress_inc == 0:
                 if n == 0:
                     utils.println("0")
@@ -371,12 +372,6 @@ class PolicyGradient(object):
             jump = False
 
             for t in xrange(1, self.Tmax):
-                if not status['continue']:
-                    break
-
-                if jump:
-                    # decision is made, go to next epoch
-                    continue
 
                 # Policy network output
                 z_t, x_t[0] = self.policy_step_t(u_t[None,:], q_t[None,:], x_t)
@@ -406,10 +401,12 @@ class PolicyGradient(object):
                 # Select action
                 a_t = theanotools.choice(self.rng, self.Nout,
                                          p=np.reshape(z_t, (self.Nout,)))
+                if not jump:
 
                 # get choice history
-                A[t,n,a_t] = 1
-
+                    A[t,n,a_t] = 1
+                else:
+                    a_t = None
                 # a_t = self.rng.normal(np.reshape(z_t, (self.Nout,)), self.sigma)
                 # A[t,n,0] = a_t
 
@@ -429,14 +426,14 @@ class PolicyGradient(object):
                             rewardHistory.append(0)
                             rewardHistory.append(0)
 
-                        if status['choice'] == 'LEFT':
+                        if status['choice'] == 0:
                             choiceHistory.append(2)
                             jump = True
-                        elif status['choice'] == 'RIGHT':
+                        elif status['choice'] == 1:
                             choiceHistory.append(3)
                             jump = True
 
-                    if t+1 > 2200: # when go beyond decision period
+                    if t+1 > 200: # when go beyond go period
                         jump = False
 
                 R[t,n] *= self.discount_factor(t)
@@ -743,11 +740,24 @@ class PolicyGradient(object):
 
                         # Trials
 
-                        # trials = [self.task.get_condition(self.rng, self.dt, )
-                        #           for i in xrange(n_validation)]
-                        trials = n_validation
-                        # for matching pennies task, where trials cannot be generated in advance
-                        # Run trials
+                        #for bandit task, generate blockID randomly every batch
+
+
+                        n = 0
+                        iter = 0
+                        blockID = []
+                        while n < n_validation:
+                            blocklength = random.randint(20,50)
+                            for x in range(blocklength):
+                                blockID.append(iter%2)
+                            n += blocklength
+                            iter += 1
+
+
+                        trials = [self.task.get_condition(self.rng, self.dt, blockID[i])
+                                   for i in xrange(n_validation)]
+                        #trials = n_validation
+                        #
                         (U, Q, Q_b, Z, Z_b, A, R, M, init_, init_b_, x0_, x0_b_,
                          perf_) = self.run_trials(trials, progress_bar=True)
                         if hasattr(self.task, 'update'):
@@ -909,7 +919,20 @@ class PolicyGradient(object):
                 # Trial conditions
                 if hasattr(self.task, 'n_gradient'):
                     n_gradient = self.task.n_gradient
-                trials = [self.task.get_condition(self.rng, self.dt)
+
+                # for bandit task, generate blockID randomly every batch
+
+                n = 0
+                iter = 0
+                blockID_grad = []
+                while n < n_gradient:
+                    blocklength = random.randint(20, 50)
+                    for x in range(blocklength):
+                        blockID_grad.append(iter % 2)
+                    n += blocklength
+                    iter += 1
+
+                trials = [self.task.get_condition(self.rng, self.dt, blockID_grad[i])
                           for i in xrange(n_gradient)]
 
                 # Run trials
